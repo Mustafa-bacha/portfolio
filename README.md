@@ -43,7 +43,11 @@
 2. Deleting lambda Function
 ![Task_6_B](https://github.com/user-attachments/assets/6c92f82d-cd32-45c6-b6ad-092b93c9beb4)
 
-3. Deleting DynamoDB
+3. Deleting API Gateway
+![getway](https://github.com/user-attachments/assets/c2db9bd0-6a69-4f8a-966a-7e13d076c7a6)
+
+
+5. Deleting DynamoDB
 ![Task_6_C](https://github.com/user-attachments/assets/229541e9-31e2-493c-960d-d528493e4fa0)
 
 
