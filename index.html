@@ -5,11 +5,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muhammad Mustafa Shah - Personal Website</title>
     <link rel="stylesheet" href="style.css">
+    <style>
+        #api-section {
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            max-width: 600px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        #api-section h2 {
+            color: #333;
+        }
+        #api-content {
+            font-size: 18px;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
 </head>
 <body>
+
     <header>
-        <h1>Welcome My Personal Website!</h1>
+        <h1>Welcome to My Personal Website!</h1>
     </header>
+
+    <!-- API Section Moved Here -->
+    <section id="api-section">
+        <h2>API Response</h2>
+        <div id="api-content">Loading...</div>
+    </section>
 
     <section>
         <h2>About Me</h2>
@@ -48,5 +74,27 @@
     <footer>
         <p>Contact: <a href="mailto:muhammad.mustafa@example.com">muhammad.mustafa@example.com</a></p>
     </footer>
+
+    <script>
+        async function fetchAPIData() {
+            try {
+                const response = await fetch('https://psagy8cdae.execute-api.eu-north-1.amazonaws.com/prod/profile');
+                if (!response.ok) {
+                    throw new Error("Failed to fetch API data.");
+                }
+                const data = await response.json();
+                
+                // Extracting the actual message from the API response
+                const message = JSON.parse(data.body);
+
+                document.getElementById('api-content').innerText = message;
+            } catch (error) {
+                document.getElementById('api-content').innerHTML = `<p style="color:red;">Error loading API data.</p>`;
+            }
+        }
+
+        fetchAPIData();
+    </script>
+
 </body>
 </html>
